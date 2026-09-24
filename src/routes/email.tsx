@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { EmailPage } from "@/components/email-page";
+export const Route = createFileRoute("/email")({ head: () => ({ meta: [{ title: "Email Generator — Workmate AI" }, { name: "description", content: "Create polished workplace emails in formal, friendly, or persuasive tones." }, { property: "og:title", content: "Email Generator — Workmate AI" }, { property: "og:description", content: "Create polished workplace emails in formal, friendly, or persuasive tones." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: EmailPage });

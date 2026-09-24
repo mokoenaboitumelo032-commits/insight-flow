@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { ResearchPage } from "@/components/research-page";
+export const Route = createFileRoute("/research")({ head: () => ({ meta: [{ title: "Research Assistant — Workmate AI" }, { name: "description", content: "Turn workplace topics and articles into structured insights and recommendations." }, { property: "og:title", content: "Research Assistant — Workmate AI" }, { property: "og:description", content: "Turn workplace topics and articles into structured insights and recommendations." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: ResearchPage });
