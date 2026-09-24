@@ -1,5 +1,5 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, Mail, Search, MessageSquareText, Settings, Plus, Trash2, ShieldCheck, Bot, PanelLeftClose } from "lucide-react";
+import { LayoutDashboard, Mail, Search, MessageSquareText, Settings, Plus, Trash2, ShieldCheck, Bot, PanelLeftClose, TriangleAlert } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
