@@ -36,7 +36,7 @@ export function generateEmail(recipient: string, purpose: string, tone: EmailTon
   };
   const index = variation % 2;
   const subjectCore = clean(purpose).split(/[.!?]/)[0].slice(0, 68) || "Follow-up";
-  return `Subject: ${tone === "Persuasive" ? "Next steps: " : ""}${subjectCore}\n\n${greetings[tone][index]}\n\n${bodies[tone][index]}\n\n${closes[tone]}`;
+  return `Subject: ${tone === "Persuasive" ? "Next steps: " : ""}${subjectCore}\n\n${greetings[tone][index] ?? greetings[tone][0]}\n\n${bodies[tone][index] ?? bodies[tone][0]}\n\n${closes[tone]}`;
 }
 
 const extractKeywords = (input: string) => {
