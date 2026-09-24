@@ -1,5 +1,5 @@
 import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
-import { LayoutDashboard, Mail, Search, MessageSquareText, Settings, Plus, Trash2, ShieldCheck, Bot, PanelLeftClose } from "lucide-react";
+import { LayoutDashboard, Mail, Search, MessageSquareText, Settings, Plus, Trash2, ShieldCheck, Bot, PanelLeftClose, TriangleAlert } from "lucide-react";
 import { useEffect, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
@@ -58,7 +58,14 @@ export function AppShell({ children }: { children: ReactNode }) {
             {threads.map((thread) => <div className="group flex items-center gap-1" key={thread.id}><Link to="/chat/$threadId" params={{ threadId: thread.id }} onClick={() => setMobileOpen(false)} className={`min-w-0 flex-1 truncate rounded-md px-2 py-2 text-xs ${pathname === `/chat/${thread.id}` ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/60"}`}>{thread.title}</Link><Tooltip><TooltipTrigger asChild><Button size="icon-sm" variant="ghost" className="shrink-0 text-sidebar-foreground/50 opacity-0 hover:bg-sidebar-accent hover:text-sidebar-foreground group-hover:opacity-100 focus:opacity-100" onClick={() => remove(thread.id)} aria-label={`Delete ${thread.title}`}><Trash2 /></Button></TooltipTrigger><TooltipContent>Delete chat</TooltipContent></Tooltip></div>)}
           </div>
         </div>}
-        <div className="mt-auto border-t border-sidebar-border p-3"><div className="flex items-center gap-3 rounded-md px-2 py-2"><ShieldCheck className="size-4 shrink-0 text-sidebar-primary" />{!collapsed && <span className="text-xs text-sidebar-foreground/65">Stored only on this device</span>}</div></div>
+        <div className="mt-auto border-t border-sidebar-border p-3">
+          {!collapsed ? (
+            <p role="note" className="mb-2 rounded-md border border-sidebar-border bg-sidebar-accent/40 px-3 py-2.5 text-xs leading-5 text-sidebar-foreground/80"><strong className="font-semibold text-sidebar-foreground">AI can make mistakes.</strong> Always review outputs before professional use.</p>
+          ) : (
+            <Tooltip><TooltipTrigger asChild><div tabIndex={0} className="mb-2 grid size-9 place-items-center rounded-md border border-sidebar-border bg-sidebar-accent/40 outline-none focus-visible:ring-2 focus-visible:ring-sidebar-primary"><TriangleAlert className="size-4 shrink-0 text-sidebar-primary" /></div></TooltipTrigger><TooltipContent className="max-w-60">AI can make mistakes. Always review outputs before professional use.</TooltipContent></Tooltip>
+          )}
+          <div className="flex items-center gap-3 rounded-md px-2 py-2"><ShieldCheck className="size-4 shrink-0 text-sidebar-primary" />{!collapsed && <span className="text-xs text-sidebar-foreground/65">Stored only on this device</span>}</div>
+        </div>
       </aside>
       <main className="min-w-0 flex-1">
         <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b bg-background/90 px-4 backdrop-blur md:px-6">
