@@ -14,7 +14,7 @@ export function generateEmail(recipient: string, purpose: string, tone: EmailTon
     Formal: [`Dear ${to},`, `Hello ${to},`],
     Friendly: [`Hi ${to},`, `Hello ${to},`],
     Persuasive: [`Hi ${to},`, `Hello ${to},`],
-  };
+  } as const;
   const bodies = {
     Formal: [
       `I am writing regarding ${goal.charAt(0).toLowerCase()}${goal.slice(1)} I would appreciate your consideration and any guidance on the appropriate next steps.`,
@@ -28,7 +28,7 @@ export function generateEmail(recipient: string, purpose: string, tone: EmailTon
       `I’m reaching out because ${goal.charAt(0).toLowerCase()}${goal.slice(1)} Moving ahead now would help us maintain momentum, reduce avoidable delays, and give everyone clarity on the next step.`,
       `I’d like to propose that we act on the following: ${goal} This is a practical opportunity to align the team and deliver a stronger outcome without adding unnecessary complexity.`,
     ],
-  };
+  } as const;
   const closes = {
     Formal: "Kind regards,\n[Your name]",
     Friendly: "Best,\n[Your name]",
