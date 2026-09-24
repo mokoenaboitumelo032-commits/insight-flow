@@ -1,0 +1,3 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { SettingsPage } from "@/components/settings-page";
+export const Route = createFileRoute("/settings")({ head: () => ({ meta: [{ title: "Settings — Workmate AI" }, { name: "description", content: "Manage local workplace assistant preferences and browser-stored chat data." }, { property: "og:title", content: "Settings — Workmate AI" }, { property: "og:description", content: "Manage local workplace assistant preferences and browser-stored chat data." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }] }), component: SettingsPage });
